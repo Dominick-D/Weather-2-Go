@@ -12,7 +12,9 @@ body {
   height: 100%;
   object-fit: cover;
 }
-
+.has-border-right {
+  border-right: 1px solid black;
+}
 #header-image h1 {
   position: absolute;
   top: 50%;
@@ -28,6 +30,10 @@ body {
   header .column {
       display: flex;
       justify-content: center;
+  }
+
+  .has-border-right {
+    border-right: none;
   }
 
   header h1 {

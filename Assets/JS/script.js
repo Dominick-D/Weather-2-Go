@@ -85,22 +85,34 @@ function saveSearchHistory(city) {
   if (!searchHistory.includes(city)) {
     searchHistory.push(city);
     localStorage.setItem("searchHistory", JSON.stringify(searchHistory));
-    searchHistoryEl.innerHTML += `
-      <a href="#" class="search-history__item">${city}</a>
-    `;
+    const option = document.createElement("a");
+    option.classList.add("dropdown-item");
+    option.innerText = city;
+    option.addEventListener("click", () => {
+      inputEl.value = city;
+      formEl.dispatchEvent(new Event("submit"));
+    });
+    searchHistoryEl.appendChild(option);
   }
 }
+
 function loadSearchHistory() {
-  const searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
-  searchHistoryEl.innerHTML = ""; // clear the contents of searchHistoryEl
-  searchHistory.forEach(city => {
-    searchHistoryEl.innerHTML += `
-      <a href="#" class="search-history__item">${city}</a>
-    `;
+  const searchHistoryEl = document.querySelector("#search-history");
+  searchHistoryEl.innerHTML = "";
+  searchHistory.forEach((city) => {
+    const option = document.createElement("a");
+    option.classList.add("dropdown-item");
+    option.innerText = city;
+    option.addEventListener("click", () => {
+      inputEl.value = city;
+      formEl.dispatchEvent(new Event("submit"));
+    });
+    searchHistoryEl.appendChild(option);
   });
 }
 
-loadSearchHistory();
+
+
 // Events
 formEl.addEventListener("submit", (event) => {
     event.preventDefault();
