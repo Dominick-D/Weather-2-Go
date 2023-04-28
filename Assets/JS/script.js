@@ -57,7 +57,7 @@ function getFiveDayForecast(lat, lon) {
 function renderCurrentWeather(weatherInfo) {
   const temp = weatherInfo.temp.toFixed(2);
   currentWeatherEl.innerHTML = `
-    <div class="current-weather-card">
+    <div class="current-weather-card is-size-5">
       <h3>${weatherInfo.city} (${weatherInfo.date.toLocaleDateString()})</h3>
       <img src="https://openweathermap.org/img/w/${weatherInfo.icon}.png" alt="${weatherInfo.icon}">
       <p>Temperature: ${temp} °F</p>
@@ -70,11 +70,12 @@ function renderForecast(forecastInfo) {
   forecastEl.innerHTML = "";
   for (let i = 0; i < forecastInfo.length; i++) {
     const dayData = forecastInfo[i];
+    const temp = dayData.temp.toFixed(2);
     forecastEl.innerHTML += `
-      <div class="forecast-card">
+      <div class="forecast-card is-size-5">
         <h4>${dayData.date.toLocaleDateString()}</h4>
         <img src="https://openweathermap.org/img/w/${dayData.icon}.png" alt="${dayData.icon}">
-        <p>Temperature: ${dayData.temp} °F</p>
+        <p>Temperature: ${temp} °F</p>
         <p>Humidity: ${dayData.humidity}%</p>
         <p>Wind Speed: ${dayData.windSpeed} MPH</p>
       </div>
@@ -97,7 +98,7 @@ function saveSearchHistory(city) {
 }
 
 function loadSearchHistory() {
-  const searchHistoryEl = document.querySelector("#search-history");
+  searchHistory = JSON.parse(localStorage.getItem("searchHistory")) || [];
   searchHistoryEl.innerHTML = "";
   searchHistory.forEach((city) => {
     const option = document.createElement("a");
@@ -110,6 +111,7 @@ function loadSearchHistory() {
     searchHistoryEl.appendChild(option);
   });
 }
+
 
 
 

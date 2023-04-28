@@ -4,22 +4,22 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Weather Dashboard</title>
+    <title>Weather-2-Go</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.3/css/bulma.min.css">
     <link rel="stylesheet" href="./Assets/CSS/style.css">
 </head>
 <body>
   <header>
-    <section id="header-image">
+    <section class="mb-3" id="header-image">
       <img src="./Assets/IMAGES/Weather.JPG" alt="Weather-Image of a Sunset">
-      <h1 class="title is-1 is-overlay is-size-2-desktop is-size-3-tablet is-size-4-mobile">Weather Dashboard</h1>
+      <h1 class="title is-1 is-overlay has-text-centered pt-3 is-size-2-desktop is-size-3-tablet is-size-4-mobile">Weather-2-Go</h1>
     </section>
   </header>
-    <main>
+    <main class="is-family-primary">
 
       <div class="container mx-2">
         <div class="columns">
-            <div class="column is-one-quarter has-border-right">
+            <div class="column is-one-quarter has-border-right" id="Search-and-History">
                 <form>
                     <div class="field">
                         <label class="label">Enter City Name</label>
@@ -29,14 +29,14 @@
                     </div>
                     <div class="field">
                         <div class="control">
-                            <button class="button is-primary" type="submit">Search</button>
+                            <button class="button is-dark is-medium" type="submit">Search</button>
                         </div>
                     </div>
                 </form>
                 <div>
                     <div class="dropdown is-hoverable">
                         <div class="dropdown-trigger">
-                          <button class="button" aria-haspopup="true" aria-controls="dropdown-menu">
+                          <button class="button is-link" aria-haspopup="true" aria-controls="dropdown-menu">
                             <span>Search History</span>
                             <span class="icon is-small">
                               <i class="fas fa-angle-down" aria-hidden="true"></i>
@@ -66,11 +66,6 @@
         </div>
     </div>  
   </main>
-    <footer>
-        <div class="container">
-          <p>2023 Weather Dashboard</p>
-        </div>
-    </footer>
     <script src="./Assets/JS/script.js"></script>
 </body>
 </html>
